@@ -8,14 +8,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dermate">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.dermate">
+        <activity android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.dermate.BottomBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.welcomeslider.WelcomeSliderActivity"
+            android:theme="@style/Theme.dermate.NoActionBar" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Theme.dermate.NoActionBar">
+
+        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
