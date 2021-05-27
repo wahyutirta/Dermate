@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.dermate.MainActivity
-import com.example.dermate.PreferenceManager
+import com.example.dermate.utils.PreferenceManager
 import com.example.dermate.R
 import com.example.dermate.databinding.ActivityWelcomeSliderBinding
+import com.example.dermate.ui.home.HomeActivity
 import com.example.dermate.ui.welcomeslider.pagefragment.FirstPageFragment
 import com.example.dermate.ui.welcomeslider.pagefragment.SecondPageFragment
 import com.example.dermate.ui.welcomeslider.pagefragment.ThirdPageFragment
@@ -18,14 +18,14 @@ class WelcomeSliderActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityWelcomeSliderBinding
     private val fragmentList  = ArrayList<Fragment>()
-    private lateinit var preferenceManager :PreferenceManager
+    private lateinit var preferenceManager : PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        preferenceManager = PreferenceManager(this)
         /*
         //remove this part when developing app
-        preferenceManager = PreferenceManager(this)
         if (!preferenceManager.isFirstTimeLaunch()){
             startMainActivity()
             finish()
@@ -70,7 +70,7 @@ class WelcomeSliderActivity : AppCompatActivity() {
     }
 
     private fun startMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
 
