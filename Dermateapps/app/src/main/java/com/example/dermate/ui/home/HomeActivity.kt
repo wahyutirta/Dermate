@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.Window
+import androidx.appcompat.app.ActionBar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -24,10 +26,16 @@ class HomeActivity : AppCompatActivity() {
             menu.getItem(1).isEnabled = false
         }
 
-        //val bottomNavView: BottomNavigationView = binding.bottomNavView
+        supportActionBar?.apply {
+            displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+            setDisplayShowCustomEnabled(true)
+            setCustomView(R.layout.title_action_bar)
+            elevation = 10f
+        }
+
+
         val navController = findNavController(R.id.nav_host)
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.home, R.id.setting))
-        //setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomAppBar.setupWithNavController(navController,appBarConfiguration)
         binding.bottomNavView.setupWithNavController(navController)
 
