@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dermate">
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Dermate">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.dermate">
+        <activity android:name=".ui.question.QuestionActivity"
+            android:parentActivityName=".ui.pickimage.ImagePickerActivity"
+            android:label="Questions"/>
+        <activity
+            android:name=".ui.result.ResultActivity"
+            android:label="Prediction Result"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.pickimage.ImagePickerActivity"
+            android:label="Pick your image to scan"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.dermate.BottomBar" />
+        <activity
+            android:name=".ui.welcomeslider.WelcomeSliderActivity"
+            android:theme="@style/Theme.dermate.NoActionBar" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Theme.dermate.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
