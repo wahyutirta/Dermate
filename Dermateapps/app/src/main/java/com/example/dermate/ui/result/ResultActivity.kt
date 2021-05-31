@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.dermate.ui.result
 
 import android.graphics.Bitmap
@@ -5,7 +7,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import com.example.dermate.R
 import com.example.dermate.data.models.ResultModel
 import com.example.dermate.databinding.ActivityResultBinding
 
@@ -14,8 +15,8 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
     private lateinit var labels: List<String>
     private lateinit var image: Bitmap
-    lateinit var labelIndex: List<Int>
-    lateinit var uriImage: Uri
+    private lateinit var labelIndex: List<Int>
+    private lateinit var uriImage: Uri
 
     companion object {
         const val DATA = "data"
@@ -33,7 +34,7 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
-    fun setUi(data: ResultModel) {
+    private fun setUi(data: ResultModel) {
         uriImage = data.image!!
         labelIndex = data.id!!
         image = MediaStore.Images.Media.getBitmap(this.contentResolver, uriImage)

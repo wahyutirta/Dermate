@@ -24,13 +24,13 @@ class WelcomeSliderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         preferenceManager = PreferenceManager(this)
-        /*
+
         //remove this part when developing app
         if (!preferenceManager.isFirstTimeLaunch()){
             startMainActivity()
             finish()
         }
-         */
+
 
         binding = ActivityWelcomeSliderBinding.inflate(layoutInflater)
         setContentView(binding.root)

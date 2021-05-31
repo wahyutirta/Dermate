@@ -45,7 +45,7 @@ class IndicatorLayout : LinearLayout {
         updateIndicators()
     }
     fun selectCurrentPosition(position: Int) {
-        if (position >= 0 && position <= indicatorCount) {
+        if (position in 0..indicatorCount) {
             selectedPosition = position
             for (index in 0 until indicatorCount) {
                 val indicator = getChildAt(index)

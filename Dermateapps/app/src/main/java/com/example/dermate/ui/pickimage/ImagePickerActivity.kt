@@ -1,17 +1,12 @@
 package com.example.dermate.ui.pickimage
 
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -22,10 +17,10 @@ import com.example.dermate.data.models.ResultModel
 import com.example.dermate.databinding.ActivityImagePickerBinding
 import com.example.dermate.ml.ConvertedModel1
 import com.example.dermate.ui.result.ResultActivity
+import com.github.dhaval2404.imagepicker.ImagePicker
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.io.File
 
 
 @Suppress("DEPRECATION")
@@ -34,14 +29,12 @@ class ImagePickerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImagePickerBinding
     private lateinit var data: ResultModel
 
-    lateinit var bitmap: Bitmap
-    var image_uri: Uri? = null
+    private lateinit var bitmap: Bitmap
+    private var imageUri: Uri? = null
 
 
     companion object {
         const val FILE_MANAGER = 100
-        const val OPEN_CAMERA = 101
-        const val PERMISSION_CODE = 1000
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +47,6 @@ class ImagePickerActivity : AppCompatActivity() {
             openCameraBtn.setOnClickListener(clickListener)
             startPredictionBtn.setOnClickListener(clickListener)
         }
-
     }
 
     @SuppressLint("QueryPermissionsNeeded")
@@ -62,41 +54,14 @@ class ImagePickerActivity : AppCompatActivity() {
         when (view.id) {
             R.id.open_file_manager -> {
                 Log.d("msg", "button pressed")
-                val intent: Intent = Intent(Intent.ACTION_GET_CONTENT)
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.type = "image/*"
                 startActivityForResult(intent, FILE_MANAGER)
             }
             R.id.open_camera_btn -> {
-                /*
-                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                val photo = File(Environment.getExternalStorageDirectory(), "Pic.jpg")
-                intent.putExtra(
-                    MediaStore.EXTRA_OUTPUT,
-                    Uri.fromFile(photo)
-                )
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (checkSelfPermission(Manifest.permission.CAMERA)
-                        == PackageManager.PERMISSION_DENIED ||
-                        checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        == PackageManager.PERMISSION_DENIED
-                    ) {
-                        //permission was not enabled
-                        val permission = arrayOf(
-                            Manifest.permission.CAMERA,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                        )
-                        //show popup to request permission
-                        requestPermissions(permission, PERMISSION_CODE)
-                    } else {
-                        //permission already granted
-                        openCamera()
-                    }
-                } else {
-                    //system os is < marshmallow
-                    openCamera()
-                }
-
-                 */
+                ImagePicker.with(this)
+                    .cameraOnly()
+                    .start()
             }
             R.id.start_prediction_btn -> {
                 val resizedImage = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
@@ -114,7 +79,7 @@ class ImagePickerActivity : AppCompatActivity() {
                 val outputFeature0 = outputs.outputFeature0AsTensorBuffer
                 val labelIndex = getMax(outputFeature0.floatArray)
 
-                data = ResultModel(labelIndex, image_uri)
+                data = ResultModel(labelIndex, imageUri)
                 machineLearningModel.close()
 
                 val intent = Intent(this, ResultActivity::class.java)
@@ -125,56 +90,32 @@ class ImagePickerActivity : AppCompatActivity() {
         }
     }
 
-    private fun openCamera() {
-        val values = ContentValues()
-        values.put(MediaStore.Images.Media.TITLE, "New Picture")
-        values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
-        image_uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-        //camera intent
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
-        startActivityForResult(cameraIntent, OPEN_CAMERA)
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED
-                ) {
-                    //permission from popup was granted
-                    openCamera()
-                } else {
-                    //permission from popup was denied
-                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if (requestCode == FILE_MANAGER) {
             if (resultCode == Activity.RESULT_OK) {
-                image_uri = data?.data
-                bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, image_uri)
+                imageUri = data?.data
+                bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                 binding.apply {
                     imagePreview.setImageBitmap(bitmap)
                     startPredictionBtn.isEnabled = true
                 }
             }
-        } else if (requestCode == OPEN_CAMERA) {
-            if (requestCode == Activity.RESULT_OK) {
-                image_uri = data?.data
-                bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, image_uri)
-                binding.apply {
-                    imagePreview.setImageBitmap(bitmap)
-                    startPredictionBtn.isEnabled = true
+        } else if (requestCode == ImagePicker.REQUEST_CODE) {
+            when (resultCode) {
+                Activity.RESULT_OK -> {
+                    imageUri = data?.data
+                    bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
+                    binding.apply {
+                        imagePreview.setImageBitmap(bitmap)
+                        startPredictionBtn.isEnabled = true
+                    }
+                }
+                ImagePicker.RESULT_ERROR -> {
+                    Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
                 }
             }
         }

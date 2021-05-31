@@ -15,6 +15,9 @@
     </style>
 
     <color name="camera_placeholder_background">@color/grey_dark</color>
+    <color name="card_background">@color/grey_dark</color>
+    <color name="text_title">@color/white</color>
+    <color name="home_background">@color/dark_background</color>
 
     <style name="Theme.dermate.NoActionBar">
         <item name="colorPrimary">@color/theme_color</item>
