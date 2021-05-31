@@ -7,26 +7,34 @@
     android:padding="10dp"
     tools:context=".ui.pickimage.ImagePickerActivity">
 
-    <ImageView
-        android:id="@+id/image_preview"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/image_input_placeholder"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/image_input_placeholder"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
 
     <Button
         android:id="@+id/start_prediction_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_oval"
-        android:text="Start Prediction"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/button_oval"
         android:enabled="false"
+        android:text="Start Prediction"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -60,6 +68,5 @@
             android:background="@drawable/button_oval"
             android:text="Open File" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

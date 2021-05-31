@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.dermate">
-        <activity android:name=".ui.QuestionActivity"></activity>
+        <activity android:name=".ui.question.QuestionActivity"
+            android:parentActivityName=".ui.pickimage.ImagePickerActivity"
+            android:label="Questions"/>
         <activity
             android:name=".ui.result.ResultActivity"
             android:label="Prediction Result"

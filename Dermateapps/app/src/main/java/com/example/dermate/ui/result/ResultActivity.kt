@@ -20,6 +20,7 @@ class ResultActivity : AppCompatActivity() {
 
     companion object {
         const val DATA = "data"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

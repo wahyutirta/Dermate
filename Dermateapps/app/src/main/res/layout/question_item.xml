@@ -23,7 +23,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:backgroundTint="@color/grey" />
+            android:background="@color/home_background" />
 
         <RadioGroup
             android:layout_width="match_parent"

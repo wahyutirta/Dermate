@@ -27,7 +27,7 @@ object FireStoreService {
         return try{
             db.collection("dermatedatabase").document(disease).get().await().toSpecificData()
         }catch (e : Exception){
-            Log.e(TAG, "Error getting data", e)
+            Log.e(TAG, "Error getting data $disease", e)
             null
         }
     }

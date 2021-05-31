@@ -13,8 +13,8 @@ data class SpecificDataModel (
     companion object {
         fun DocumentSnapshot.toSpecificData(): SpecificDataModel? {
             return try {
-                val url: String = getString("article_url")!!
-                val questions: List<String> = get("question") as List<String>
+                val url = get("article_url") as? String
+                val questions: List<String>? = get("question") as? List<String>
                 SpecificDataModel(url, questions)
             } catch (e: Exception) {
                 Log.e(TAG,"Error converting data",e)
@@ -22,6 +22,6 @@ data class SpecificDataModel (
             }
         }
 
-        private const val TAG = "Article"
+        private const val TAG = "Data specified"
     }
 }

@@ -16,6 +16,7 @@ import com.example.dermate.R
 import com.example.dermate.data.models.ResultModel
 import com.example.dermate.databinding.ActivityImagePickerBinding
 import com.example.dermate.ml.ConvertedModel1
+import com.example.dermate.ui.question.QuestionActivity
 import com.example.dermate.ui.result.ResultActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import org.tensorflow.lite.DataType
@@ -82,7 +83,7 @@ class ImagePickerActivity : AppCompatActivity() {
                 data = ResultModel(labelIndex, imageUri)
                 machineLearningModel.close()
 
-                val intent = Intent(this, ResultActivity::class.java)
+                val intent = Intent(this, QuestionActivity::class.java)
                 intent.putExtra(ResultActivity.DATA, data)
                 startActivity(intent)
 
