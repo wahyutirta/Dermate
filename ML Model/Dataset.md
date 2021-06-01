@@ -5,8 +5,6 @@
 
 # About Skin Diseases Dataset
 
-![Screenshot_5](https://user-images.githubusercontent.com/60332569/120260553-b1f80000-c2c8-11eb-8bd2-0608c872dcd0.png)
-
 Our team created this images dataset specifically for skin diseases that are commonly found on baby skin. 
 There are 11 categories of skin diseases in babies that are often found, such as:
 
