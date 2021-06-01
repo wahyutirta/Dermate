@@ -15,9 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dermate.R
 import com.example.dermate.data.models.ResultModel
 import com.example.dermate.databinding.ActivityImagePickerBinding
-import com.example.dermate.ml.ConvertedModel1
+import com.example.dermate.ml.ConvertedModel2
 import com.example.dermate.ui.question.QuestionActivity
-import com.example.dermate.ui.result.ResultActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
@@ -31,7 +30,7 @@ class ImagePickerActivity : AppCompatActivity() {
     private lateinit var data: ResultModel
 
     private lateinit var bitmap: Bitmap
-    private var imageUri: Uri? = null
+    private lateinit var imageUri: Uri
 
 
     companion object {
@@ -66,7 +65,7 @@ class ImagePickerActivity : AppCompatActivity() {
             }
             R.id.start_prediction_btn -> {
                 val resizedImage = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
-                val machineLearningModel = ConvertedModel1.newInstance(this)
+                val machineLearningModel = ConvertedModel2.newInstance(this)
                 val tensorBuffer = TensorImage.fromBitmap(resizedImage)
                 val byteBuffer = tensorBuffer.buffer
 
@@ -84,7 +83,7 @@ class ImagePickerActivity : AppCompatActivity() {
                 machineLearningModel.close()
 
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra(ResultActivity.DATA, data)
+                intent.putExtra(QuestionActivity.DATA, data)
                 startActivity(intent)
 
             }
@@ -95,7 +94,7 @@ class ImagePickerActivity : AppCompatActivity() {
 
         if (requestCode == FILE_MANAGER) {
             if (resultCode == Activity.RESULT_OK) {
-                imageUri = data?.data
+                imageUri = data?.data!!
                 bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                 binding.apply {
                     imagePreview.setImageBitmap(bitmap)
@@ -105,7 +104,7 @@ class ImagePickerActivity : AppCompatActivity() {
         } else if (requestCode == ImagePicker.REQUEST_CODE) {
             when (resultCode) {
                 Activity.RESULT_OK -> {
-                    imageUri = data?.data
+                    imageUri = data?.data!!
                     bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                     binding.apply {
                         imagePreview.setImageBitmap(bitmap)

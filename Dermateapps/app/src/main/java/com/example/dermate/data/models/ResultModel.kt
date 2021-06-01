@@ -8,5 +8,5 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ResultModel(
     var id: List<Int>?,
-    var image: Uri?
+    var imageUri: Uri?
 ) : Parcelable

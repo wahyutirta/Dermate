@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.example.dermate.data.models
 
 import android.os.Parcelable

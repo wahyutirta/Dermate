@@ -56,7 +56,7 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                     binding.apply {
                         articleProvider.text = "Article by ${data.sitename}"
                         urlTitle.text = trimTitle
-                        Glide.with(itemView.context).load(data.imageurl).into(imageThumbnail)
+                        Glide.with(itemView.context.applicationContext).load(data.imageurl).into(imageThumbnail)
                     }
                 }
 
