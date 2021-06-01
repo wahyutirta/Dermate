@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.dermate.ui.question
 
 import android.content.Intent
@@ -18,6 +20,7 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var labels: List<String>
     private lateinit var questionViewModel: QuestionViewModel
 
+    private lateinit var imageUri: Uri
     private var resultLabel = ""
     private var label1 = ""
     private var label2 = ""
@@ -25,7 +28,6 @@ class QuestionActivity : AppCompatActivity() {
     private var totalTrueQuestion1 = 0
     private var totalTrueQuestion2 = 0
     private var totalTrueQuestion3 = 0
-
 
     private lateinit var labelIndex: List<Int>
 
@@ -38,8 +40,6 @@ class QuestionActivity : AppCompatActivity() {
         const val RESULT_CODE1 = 2001
         const val RESULT_CODE2 = 2002
         const val RESULT_CODE3 = 2003
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +50,11 @@ class QuestionActivity : AppCompatActivity() {
             .split("\n")
 
         val data = intent.getParcelableExtra<ResultModel>(DATA)
+        imageUri = data?.imageUri!!
 
         questionViewModel = ViewModelProvider(this)[QuestionViewModel::class.java]
 
-        labelIndex = data?.id ?: listOf()
+        labelIndex = data.id ?: listOf()
 
         label1 = labels[labelIndex[0]].replace("\r", "")
         label2 = labels[labelIndex[1]].replace("\r", "")
@@ -63,18 +64,7 @@ class QuestionActivity : AppCompatActivity() {
         observeQuestions2(label2)
         observeQuestions3(label3)
 
-        binding.showResultButton.setOnClickListener {
-            if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
-                resultLabel = label1
-            } else if (totalTrueQuestion2 > totalTrueQuestion1 && totalTrueQuestion2 > totalTrueQuestion3) {
-                resultLabel = label2
-            } else if (totalTrueQuestion3 > totalTrueQuestion1 && totalTrueQuestion3 > totalTrueQuestion2) {
-                resultLabel = label3
-            }
-            val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
-            intent.putExtra(ResultActivity.DATA, QuestionResultModel(data?.imageUri,resultLabel))
-            startActivity(intent)
-        }
+
     }
 
     private fun observeQuestions1(label: String) {
@@ -117,6 +107,7 @@ class QuestionActivity : AppCompatActivity() {
             }
         })
     }
+
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -127,6 +118,7 @@ class QuestionActivity : AppCompatActivity() {
             if (resultCode == RESULT_CODE1) {
                 totalTrueQuestion1 = data?.getIntExtra(AskingQuestionsActivity.EXTRA_VALUE, 0)!!
 
+                showResult()
             }
         } else if (requestCode == QUEST2) {
             if (resultCode == RESULT_CODE2) {
@@ -136,12 +128,22 @@ class QuestionActivity : AppCompatActivity() {
             if (resultCode == RESULT_CODE3) {
                 totalTrueQuestion3 = data?.getIntExtra(AskingQuestionsActivity.EXTRA_VALUE, 0)!!
 
-                binding.resultDataQuestion.text =
-                    "$totalTrueQuestion1 , $totalTrueQuestion2 , $totalTrueQuestion3"
-
-
             }
         }
+    }
+
+    private fun showResult() {
+        if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
+            resultLabel = label1
+        } else if (totalTrueQuestion2 > totalTrueQuestion1 && totalTrueQuestion2 > totalTrueQuestion3) {
+            resultLabel = label2
+        } else if (totalTrueQuestion3 > totalTrueQuestion1 && totalTrueQuestion3 > totalTrueQuestion2) {
+            resultLabel = label3
+        }
+        val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
+        intent.putExtra(ResultActivity.DATA, QuestionResultModel(imageUri, resultLabel))
+        startActivity(intent)
+        finish()
     }
 
 

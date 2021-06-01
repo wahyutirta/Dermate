@@ -23,7 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.dermate">
-        <activity android:name=".ui.question.AskingQuestionsActivity"></activity>
+        <activity
+            android:name=".ui.question.AskingQuestionsActivity"
+            android:label="Questions"
+            android:parentActivityName=".ui.pickimage.ImagePickerActivity" />
         <activity
             android:name=".ui.question.QuestionActivity"
             android:label="Questions"
@@ -31,7 +34,7 @@
         <activity
             android:name=".ui.result.ResultActivity"
             android:label="Prediction Result"
-            android:parentActivityName=".ui.home.HomeActivity" />
+            android:parentActivityName=".ui.pickimage.ImagePickerActivity" />
         <activity
             android:name=".ui.pickimage.ImagePickerActivity"
             android:label="Pick your image to scan"

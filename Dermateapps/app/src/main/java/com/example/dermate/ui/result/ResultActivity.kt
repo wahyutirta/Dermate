@@ -15,8 +15,6 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResultBinding
     private lateinit var labels: List<String>
     private lateinit var image: Bitmap
-    private lateinit var labelIndex: List<Int>
-    private lateinit var uriImage: Uri
 
     companion object {
         const val DATA = "data_result"
