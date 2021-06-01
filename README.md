@@ -21,9 +21,6 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 # How to Use App
 [needs to be updated]
 
-# Academic Resource
-[MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
-
 # Contributing
 Pull requests are **welcome**. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -39,6 +36,14 @@ This is project for bangkit 2021 program, we are trying to help people to recogn
 - Ni Putu Yulika Trisna Wijayanti - yulika.wijayanti@gmail.com
 - Ni Made Sinta Wahyuni - madesintawahyuni@gmail.com
 - Dermate Team - dermate.team@gmail.com
+
+# Others
+- Academic Resource Paper :
+[MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/abs/1704.04861)
+- Project Link :
+[Github Repository](https://github.com/wahyutirta/Dermate)
+- Presentation Document :
+[[B21-CAP0022] Bangkit Capstone “Dermate” Automatic Skin Diseases Diagnostic Application using Image Recognition](https://docs.google.com/presentation/d/1rb7HWnorYF5MOJFICkOq6rTzQGk18emL71rodVOaLmc/edit?usp=sharing)
 
 # License
 [needs to be updated]
