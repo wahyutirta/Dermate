@@ -34,7 +34,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_oval"
         android:enabled="false"
-        android:text="Start Prediction"
+        android:text="@string/recognise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

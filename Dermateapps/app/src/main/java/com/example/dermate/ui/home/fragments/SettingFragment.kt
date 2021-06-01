@@ -40,6 +40,7 @@ class SettingFragment : Fragment() {
                     appPref.setDarkMode(true)
 
                     binding.apply {
+                        darkmodeLabel.text = StringBuilder(resources.getString(R.string.off)).append(resources.getString(R.string.darkmode))
                         darkModeMessage.visibility = View.VISIBLE
                         systemMessage.visibility = View.VISIBLE
                     }
@@ -47,6 +48,7 @@ class SettingFragment : Fragment() {
                 false -> {
                     appPref.setDarkMode(false)
                     binding.apply {
+                        darkmodeLabel.text = StringBuilder(resources.getString(R.string.on)).append(resources.getString(R.string.darkmode))
                         darkModeMessage.visibility = View.VISIBLE
                         systemMessage.visibility = View.VISIBLE
                     }

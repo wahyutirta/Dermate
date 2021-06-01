@@ -37,7 +37,7 @@
         android:id="@+id/open_classifier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Take Picture"
+        android:contentDescription="@string/take_picture"
         android:foregroundTint="?attr/colorOnPrimary"
         android:src="@drawable/ic_scan"
         app:layout_anchor="@id/bottom_app_bar" />
