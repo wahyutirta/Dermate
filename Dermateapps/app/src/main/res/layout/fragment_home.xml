@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/home_background"
+    android:layout_height="match_parent"
     tools:context=".ui.home.fragments.HomeFragment">
 
     <TextView
@@ -15,7 +15,6 @@
         android:text="Article about skin diseases"
         android:textColor="@color/text_title"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

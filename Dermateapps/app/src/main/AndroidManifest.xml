@@ -36,6 +36,7 @@
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.home.HomeActivity"
+            android:configChanges="uiMode"
             android:theme="@style/Theme.dermate.BottomBar" />
         <activity
             android:name=".ui.welcomeslider.WelcomeSliderActivity"

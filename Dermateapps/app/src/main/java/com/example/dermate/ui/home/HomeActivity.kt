@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.Window
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.dermate.R
 import com.example.dermate.databinding.ActivityHomeBinding
 import com.example.dermate.ui.pickimage.ImagePickerActivity
+import com.example.dermate.utils.PreferenceManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         binding.bottomNavView.apply {
             background = null
             menu.getItem(1).isEnabled = false
