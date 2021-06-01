@@ -2,6 +2,7 @@ package com.example.dermate.ui.adapter
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.res.Resources
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -54,7 +55,8 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                         title.joinToString(" ")
                     }
                     binding.apply {
-                        articleProvider.text = "Article by ${data.sitename}"
+                        val articleProviderText ="${Resources.getSystem().getString(R.string.article_provider)} ${data.sitename}"
+                        articleProvider.text = articleProviderText
                         urlTitle.text = trimTitle
                         Glide.with(itemView.context.applicationContext).load(data.imageurl).into(imageThumbnail)
                     }

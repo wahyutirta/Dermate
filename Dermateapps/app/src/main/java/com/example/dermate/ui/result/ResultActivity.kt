@@ -2,6 +2,7 @@
 
 package com.example.dermate.ui.result
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -29,6 +30,7 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
@@ -91,7 +93,7 @@ class ResultActivity : AppCompatActivity() {
         val uriImage = data?.uri
         val diseaseName = data?.diseaseName
         if (!diseaseName.isNullOrEmpty()) {
-            viewModel.getDetailedData(diseaseName!!).observe(this, {
+            viewModel.getDetailedData(diseaseName).observe(this, {
                 setUi(diseaseName, uriImage, it.url)
             })
         }

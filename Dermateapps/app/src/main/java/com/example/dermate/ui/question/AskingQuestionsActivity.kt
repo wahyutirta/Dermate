@@ -17,8 +17,8 @@ class AskingQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         const val EXTRA_VALUE = "extra value"
     }
 
-    var yesOpt = 0
-    var resultCode =0
+    private var yesOpt = 0
+    private var resultCode =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,19 +3,13 @@ package com.example.dermate.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.Window
 import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.dermate.R
 import com.example.dermate.databinding.ActivityHomeBinding
 import com.example.dermate.ui.pickimage.ImagePickerActivity
-import com.example.dermate.utils.PreferenceManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -49,10 +43,4 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
 }
