@@ -55,7 +55,7 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                         title.joinToString(" ")
                     }
                     binding.apply {
-                        val articleProviderText ="${Resources.getSystem().getString(R.string.article_provider)} ${data.sitename}"
+                        val articleProviderText ="Article by ${data.sitename}"
                         articleProvider.text = articleProviderText
                         urlTitle.text = trimTitle
                         Glide.with(itemView.context.applicationContext).load(data.imageurl).into(imageThumbnail)
