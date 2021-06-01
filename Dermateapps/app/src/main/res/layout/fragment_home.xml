@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="Article about skin diseases"
+        android:text="@string/article_head"
         android:textColor="@color/text_title"
         android:textSize="20sp"
         android:textStyle="bold"

@@ -81,11 +81,11 @@ class WelcomeSliderActivity : AppCompatActivity() {
                     indicatorLayout.selectCurrentPosition(position)
                     if (position<fragmentList.lastIndex){
                         tvSkip.visibility = View.VISIBLE
-                        tvNext.text = "Next"
+                        tvNext.text = resources.getString(R.string.next)
 
                     }else{
                         tvSkip.visibility = View.GONE
-                        tvNext.text = "Get Started"
+                        tvNext.text = resources.getString(R.string.get_started)
                     }
 
                 }

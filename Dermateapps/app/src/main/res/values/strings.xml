@@ -2,4 +2,14 @@
     <string name="app_name">Dermate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="open_image">Open Image</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="article_head">Skin Desease related Article</string>
+    <string name="question">question</string>
+    <string name="yes">yes</string>
+    <string name="no">No</string>
+    <string name="setting">Settings</string>
+    <string name="get_started">Get started</string>
 </resources>
