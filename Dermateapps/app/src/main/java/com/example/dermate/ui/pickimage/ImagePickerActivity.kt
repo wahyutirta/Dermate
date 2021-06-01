@@ -15,9 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dermate.R
 import com.example.dermate.data.models.ResultModel
 import com.example.dermate.databinding.ActivityImagePickerBinding
-import com.example.dermate.ml.ConvertedModel1
+import com.example.dermate.ml.ConvertedModel2
 import com.example.dermate.ui.question.QuestionActivity
-import com.example.dermate.ui.result.ResultActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
@@ -66,7 +65,7 @@ class ImagePickerActivity : AppCompatActivity() {
             }
             R.id.start_prediction_btn -> {
                 val resizedImage = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
-                val machineLearningModel = ConvertedModel1.newInstance(this)
+                val machineLearningModel = ConvertedModel2.newInstance(this)
                 val tensorBuffer = TensorImage.fromBitmap(resizedImage)
                 val byteBuffer = tensorBuffer.buffer
 

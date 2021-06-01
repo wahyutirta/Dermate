@@ -116,10 +116,7 @@ class QuestionActivity : AppCompatActivity() {
                 startActivityForResult(intent, QUEST3)
             }
         })
-
     }
-
-
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
