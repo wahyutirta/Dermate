@@ -12,9 +12,6 @@ import androidx.transition.TransitionManager
 import com.example.dermate.R
 import com.example.dermate.databinding.FragmentSettingBinding
 import com.example.dermate.utils.PreferenceManager
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 class SettingFragment : Fragment() {
@@ -41,11 +38,18 @@ class SettingFragment : Fragment() {
             when (isChecked) {
                 true -> {
                     appPref.setDarkMode(true)
-                    binding.darkModeMessage.visibility = View.VISIBLE
+
+                    binding.apply {
+                        darkModeMessage.visibility = View.VISIBLE
+                        systemMessage.visibility = View.VISIBLE
+                    }
                 }
                 false -> {
                     appPref.setDarkMode(false)
-                    binding.darkModeMessage.visibility = View.VISIBLE
+                    binding.apply {
+                        darkModeMessage.visibility = View.VISIBLE
+                        systemMessage.visibility = View.VISIBLE
+                    }
                 }
 
                 }

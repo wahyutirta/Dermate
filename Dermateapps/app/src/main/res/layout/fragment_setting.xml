@@ -49,19 +49,32 @@
                     android:text="Use Dark Mode"
                     android:textColor="@color/text_title"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/dark_mode_message"
                     android:layout_width="wrap_content"
-                    android:visibility="gone"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Require restart to take an effect"
                     android:textSize="12sp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="@+id/textView3"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/system_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="This feature may doesn't work for some devices if night mode system is on"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/switch_dark_mode"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/dark_mode_message" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switch_dark_mode"
@@ -166,8 +179,8 @@
                     android:id="@+id/collapse_expand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/transparent"
                     android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/transparent"
                     android:src="@drawable/ic_collapsed"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -185,10 +198,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/hidden_layout"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/fixed_layout">
 
                 <TextView

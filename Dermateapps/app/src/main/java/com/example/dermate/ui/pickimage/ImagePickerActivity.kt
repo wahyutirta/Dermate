@@ -31,7 +31,7 @@ class ImagePickerActivity : AppCompatActivity() {
     private lateinit var data: ResultModel
 
     private lateinit var bitmap: Bitmap
-    private var imageUri: Uri? = null
+    private lateinit var imageUri: Uri
 
 
     companion object {
@@ -84,7 +84,7 @@ class ImagePickerActivity : AppCompatActivity() {
                 machineLearningModel.close()
 
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra(ResultActivity.DATA, data)
+                intent.putExtra(QuestionActivity.DATA, data)
                 startActivity(intent)
 
             }
@@ -95,7 +95,7 @@ class ImagePickerActivity : AppCompatActivity() {
 
         if (requestCode == FILE_MANAGER) {
             if (resultCode == Activity.RESULT_OK) {
-                imageUri = data?.data
+                imageUri = data?.data!!
                 bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                 binding.apply {
                     imagePreview.setImageBitmap(bitmap)
@@ -105,7 +105,7 @@ class ImagePickerActivity : AppCompatActivity() {
         } else if (requestCode == ImagePicker.REQUEST_CODE) {
             when (resultCode) {
                 Activity.RESULT_OK -> {
-                    imageUri = data?.data
+                    imageUri = data?.data!!
                     bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                     binding.apply {
                         imagePreview.setImageBitmap(bitmap)
