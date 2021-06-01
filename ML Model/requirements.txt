@@ -1,0 +1,7 @@
+- python==3.7.10
+- tensorflow==2.5.0
+- numpy==1.19.5
+- scikit-learn==0.22.2
+- matplotlib==3.2.2
+- splitfolders==0.4.3
+- keras==2.5.0
