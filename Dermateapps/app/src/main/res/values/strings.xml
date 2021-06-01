@@ -6,23 +6,24 @@
     <string name="open_image">Open Image</string>
     <string name="skip">Skip</string>
     <string name="next">Next</string>
-    <string name="article_head">Skin Desease related Article</string>
+    <string name="article_head">Skin disease article</string>
     <string name="question">question</string>
     <string name="yes">yes</string>
     <string name="no">No</string>
     <string name="setting">Settings</string>
     <string name="get_started">Get started!</string>
-    <string name="diplay">Display</string>
-    <string name="darkmode">Dark Mode</string>
+    <string name="display">DISPLAY</string>
+    <string name="dark_mode">Dark Mode</string>
     <string name="request_settings">Change Require Application Restart</string>
-    <string name="nightmode_alert">This feature may not work for some devices if night mode system is on</string>
+    <string name="night_mode_alert">This feature may not work for some devices if night mode system is on</string>
     <string name="change_lang">Change Language</string>
-    <string name="Language">Language</string>
-    <string name="about">Abous This Apps</string>
+    <string name="Language">LANGUAGE</string>
+    <string name="about">ABOUT</string>
     <string name="team">Sarjana Bangkit Team</string>
-    <string name="recognise">Recognise Skin Disease</string>
+    <string name="recognise">Recognize Skin Disease</string>
     <string name="take_picture">Take Picture</string>
     <string name="on">Turn On</string>
     <string name="off">Turn Off</string>
+    <string name="article_provider">"Article by</string>
 
 </resources>

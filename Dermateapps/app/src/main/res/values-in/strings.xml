@@ -2,9 +2,9 @@
     <string name="app_name">Dermate</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="open_camera">Buka Camera</string>
+    <string name="open_camera">Buka Kamera</string>
     <string name="open_image">Buka Gambar</string>
-    <string name="skip">lewati</string>
+    <string name="skip">Lewati</string>
     <string name="next">Selanjutnya</string>
     <string name="article_head">Artikel Tentang Penyakit Kulit</string>
     <string name="question">Pertanyaan</string>
@@ -12,16 +12,17 @@
     <string name="no">Tidak</string>
     <string name="setting">Pengaturan</string>
     <string name="get_started">Ayo Mulai!</string>
-    <string name="diplay">Tampilan</string>
-    <string name="darkmode">Mode Gelap</string>
+    <string name="display">TAMPILAN</string>
+    <string name="dark_mode">Mode Gelap</string>
     <string name="request_settings">Perubahan Butuh Reset Aplikasi</string>
-    <string name="nightmode_alert">Fitur ini mungkin tidak akan bekerja pada perangkat dengan mode malam sistem yang menyala</string>
+    <string name="night_mode_alert">Fitur ini mungkin tidak akan bekerja pada perangkat dengan mode malam sistem yang menyala</string>
     <string name="change_lang">Ubah Bahasa</string>
-    <string name="Language">Bahasa</string>
-    <string name="about">tentang Aplikasi</string>
+    <string name="Language">BAHASA</string>
+    <string name="about">TENTANG APLIKASI</string>
     <string name="team">Sarjana Bangkit Team</string>
     <string name="recognise">Kenali Penyakit Kulit</string>
     <string name="take_picture">Ambil Gambar</string>
     <string name="on">Nyalakan</string>
     <string name="off">Matikan</string>
+    <string name="article_provider">"Oleh</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.dermate.ui.home.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -24,11 +25,12 @@ class SettingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         appPref = PreferenceManager(requireContext())
@@ -40,7 +42,6 @@ class SettingFragment : Fragment() {
                     appPref.setDarkMode(true)
 
                     binding.apply {
-                        darkmodeLabel.text = StringBuilder(resources.getString(R.string.off)).append(resources.getString(R.string.darkmode))
                         darkModeMessage.visibility = View.VISIBLE
                         systemMessage.visibility = View.VISIBLE
                     }
@@ -48,7 +49,6 @@ class SettingFragment : Fragment() {
                 false -> {
                     appPref.setDarkMode(false)
                     binding.apply {
-                        darkmodeLabel.text = StringBuilder(resources.getString(R.string.on)).append(resources.getString(R.string.darkmode))
                         darkModeMessage.visibility = View.VISIBLE
                         systemMessage.visibility = View.VISIBLE
                     }

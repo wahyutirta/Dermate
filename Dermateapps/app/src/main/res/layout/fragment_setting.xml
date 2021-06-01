@@ -27,7 +27,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/diplay"
+                android:text="@string/display"
                 android:textColor="@color/theme_color"
                 android:textStyle="bold" />
 
@@ -46,12 +46,11 @@
                     android:id="@+id/darkmode_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/dark_mode"
                     android:textColor="@color/text_title"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/darkmode" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/dark_mode_message"
@@ -70,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
-                    android:text="@string/nightmode_alert"
+                    android:text="@string/night_mode_alert"
                     android:textSize="12sp"
                     android:visibility="gone"
                     app:layout_constraintEnd_toStartOf="@+id/switch_dark_mode"
@@ -81,9 +80,9 @@
                     android:id="@+id/switch_dark_mode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/darkmode_label"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/darkmode_label" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

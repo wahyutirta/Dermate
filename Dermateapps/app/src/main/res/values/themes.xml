@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/poppins</item>
     </style>
 
     <color name="camera_placeholder_background">@color/grey_light</color>
@@ -32,6 +33,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/theme_color</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="fontFamily">@font/poppins</item>
     </style>
 
     <style name="Theme.dermate.BottomBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -44,5 +46,6 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/theme_color</item>
+        <item name="fontFamily">@font/poppins</item>
     </style>
 </resources>    
