@@ -3,7 +3,7 @@
 [Skin Diseases](https://drive.google.com/drive/folders/1MeHLKL6dW3_PePbT34t37k478bGrBjCp?usp=sharing)
 
 
-# ABOUT SKIN DISEASES DATASET
+# About Skin Diseases Dataset
 
 ![Screenshot_5](https://user-images.githubusercontent.com/60332569/120260553-b1f80000-c2c8-11eb-8bd2-0608c872dcd0.png)
 
