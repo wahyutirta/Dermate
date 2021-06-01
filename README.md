@@ -35,11 +35,14 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 [needs to be updated]
 
 # Contributing <a name="contributing"></a>
-Pull requests are **welcome**. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are **welcome**. For major changes, please open an issue first to discuss what you would like to change. Next steps:
+1. Fork the project repo on GitHub
+2. Clone the project to your local machine
+3. Commit changes to your own branch
+4. Push your work back up to your fork
+5. Submit pull request, so we can review your changes
 
-Please make sure to update tests as appropriate.
-
-This is project for bangkit 2021 program, we are trying to help people to recognize skin desease earlier than ever
+Note : Please make sure to update tests as appropriate.
 
 # Contact <a name="contact"></a>
 - Putu Wahyu Tirta Guna - wahyutirta12345@gmail.com
