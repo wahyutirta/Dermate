@@ -133,12 +133,14 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun showResult() {
-        if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
-            resultLabel = label1
+        resultLabel = if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
+            label1
         } else if (totalTrueQuestion2 > totalTrueQuestion1 && totalTrueQuestion2 > totalTrueQuestion3) {
-            resultLabel = label2
+            label2
         } else if (totalTrueQuestion3 > totalTrueQuestion1 && totalTrueQuestion3 > totalTrueQuestion2) {
-            resultLabel = label3
+            label3
+        } else{
+            "Please Check your answer and try again"
         }
         val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
         intent.putExtra(ResultActivity.DATA, QuestionResultModel(imageUri, resultLabel))

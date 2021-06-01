@@ -33,7 +33,7 @@
             android:parentActivityName=".ui.pickimage.ImagePickerActivity" />
         <activity
             android:name=".ui.result.ResultActivity"
-            android:label="Prediction Result"
+            android:label="Result"
             android:parentActivityName=".ui.pickimage.ImagePickerActivity" />
         <activity
             android:name=".ui.pickimage.ImagePickerActivity"

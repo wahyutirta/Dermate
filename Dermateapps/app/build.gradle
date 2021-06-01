@@ -66,6 +66,8 @@ dependencies {
     //implementation 'org.tensorflow:tensorflow-lite-gpu:2.3.0'
     implementation 'org.tensorflow:tensorflow-lite:2.5.0'
 
+    //webview
+
     //ui
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android.material:material:1.4.0-beta01'
