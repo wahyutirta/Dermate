@@ -14,7 +14,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image_thumbnail" />
 
     <TextView
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:textAlignment="center"
-        android:text="Know more about your baby skin problem and its possible diagnosis using Artificial Intelligence"
+        android:text="@string/fist_page_desc"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -38,7 +39,7 @@
         android:textSize="20sp"
         android:textAlignment="center"
         android:fontFamily="@font/poppins_bold"
-        android:text="Find out about your baby's skin diseases in a click"
+        android:text="@string/first_page_title"
         app:layout_constraintBottom_toTopOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

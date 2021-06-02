@@ -34,7 +34,8 @@
                         android:id="@+id/image_result_preview"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/open_image" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -42,7 +43,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:text="Prediction Result"
+                    android:text="@string/prediction_result"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Prediction"
+                    android:text="@string/prediction"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/cv"
@@ -66,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Result Prediction"
+                    android:text="@string/diagnose"
                     android:textColor="@color/green"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

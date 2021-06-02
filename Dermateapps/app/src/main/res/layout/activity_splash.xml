@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="logo"
+        android:contentDescription="@string/logo"
         android:padding="100dp"
         android:src="@drawable/logo_white"
         app:layout_constraintTop_toTopOf="parent" />

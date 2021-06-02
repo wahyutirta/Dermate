@@ -25,5 +25,16 @@
     <string name="on">Turn On</string>
     <string name="off">Turn Off</string>
     <string name="article_provider">"Article by</string>
+    <string name="prediction_result">Prediction Result</string>
+    <string name="prediction">Prediction</string>
+    <string name="diagnose">Diagnose</string>
+    <string name="logo">logo</string>
+    <string name="image_thumbnail">Image thumbnail</string>
+    <string name="fist_page_desc">Know more about your baby skin problem and its possible diagnosis using Artificial Intelligence</string>
+    <string name="first_page_title">Find out about your baby\'s skin diseases in a click</string>
+    <string name="second_page_desc">By adding follow up question (anamnesis) from authorized doctors to get to know more about your baby\'s current condition</string>
+    <string name="second_page_title">We make sure to give accurate diagnosis for your loved one</string>
+    <string name="third_page_desc">We provide you number of baby\'s skin disease articles from official healthcare web page</string>
+    <string name="third_page_title">Get daily tips and knowledge about baby\'s skin diseases</string>
 
 </resources>
