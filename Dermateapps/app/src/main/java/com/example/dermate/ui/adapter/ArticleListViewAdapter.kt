@@ -3,6 +3,7 @@ package com.example.dermate.ui.adapter
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Color
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
 
         private val binding = ArticleItemBinding.bind(view)
         private lateinit var richPreview: RichPreview
+        @ExperimentalStdlibApi
         internal fun bind(url: String) {
 
             extractUrl(url)
@@ -41,6 +43,7 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
             }
         }
 
+        @ExperimentalStdlibApi
         private fun extractUrl(url: String) {
             var data: MetaData
 
@@ -55,8 +58,20 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                         title.joinToString(" ")
                     }
                     binding.apply {
+                        val halodoc = "HALODOC"
+                        val alodokter = "ALODOKTER"
                         val articleProviderText ="Article by ${data.sitename}"
-                        articleProvider.text = articleProviderText
+                        if (data.sitename.equals(halodoc,true)){
+                            articleProvider.text = articleProviderText
+                            articleProvider.setTextColor(itemView.resources.getColor(R.color.red_pastel))
+                        } else if (data.sitename.equals(alodokter,true)){
+                            articleProvider.text = articleProviderText
+                            articleProvider.setTextColor(itemView.resources.getColor(R.color.blue_pastel))
+                        }else{
+                            articleProvider.text = articleProviderText
+                            articleProvider.setTextColor(itemView.resources.getColor(R.color.theme_color))
+                        }
+
                         urlTitle.text = trimTitle
                         Glide.with(itemView.context.applicationContext).load(data.imageurl).into(imageThumbnail)
                     }
@@ -80,6 +95,7 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
         return ViewHolder(view)
     }
 
+    @ExperimentalStdlibApi
     override fun onBindViewHolder(holder: ArticleListViewAdapter.ViewHolder, position: Int) {
 
         holder.bind(articleList[position])

@@ -25,4 +25,15 @@
     <string name="on">Nyalakan</string>
     <string name="off">Matikan</string>
     <string name="article_provider">"Oleh</string>
+    <string name="prediction_result">Hasil Prediksi</string>
+    <string name="prediction">Prediksi</string>
+    <string name="diagnose">Diagnosa</string>
+    <string name="logo">logo</string>
+    <string name="image_thumbnail">Image thumbnail</string>
+    <string name="fist_page_desc">Ketahui lebih banyak tentang masalah kulit bayi anda dan kemungkinan diagnosisnya menggunakan Kecerdasan Buatan</string>
+    <string name="first_page_title">Cari tahu tentang penyakit kulit bayi Anda dalam sekali klik</string>
+    <string name="second_page_desc">Dengan menambahkan pertanyaan lanjutan (anamnesa) dari dokter yang berwenang untuk mengetahui lebih lanjut tentang kondisi bayi Anda saat ini</string>
+    <string name="second_page_title">Kami pastikan untuk memberikan diagnosis yang akurat untuk orang yang Anda cintai</string>
+    <string name="third_page_desc">Kami menyediakan sejumlah artikel penyakit kulit bayi dari halaman web perawatan kesehatan resmi official</string>
+    <string name="third_page_title">Dapatkan tips dan pengetahuan harian tentang penyakit kulit bayi</string>
 </resources>

@@ -6,6 +6,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="theme_color">#13D5D5</color>
     <color name="red">#AA0000</color>
+    <color name="red_pastel">#C83535</color>
+    <color name="blue_pastel">#026ECC</color>
     <color name="green">#00AA03</color>
     <color name="yellow">#D3C900</color>
     <color name="unselected_color">#CACACA</color>
