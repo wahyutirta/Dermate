@@ -2,8 +2,6 @@ package com.example.dermate.ui.adapter
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Color
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +16,8 @@ import io.github.ponnamkarthik.richlinkpreview.ResponseListener
 import io.github.ponnamkarthik.richlinkpreview.RichPreview
 
 
-class ArticleListViewAdapter(private val articleList: List<String>) :
-    RecyclerView.Adapter<ArticleListViewAdapter.ViewHolder>() {
+class ArticleRecyclerAdapter(private val articleList: List<String>) :
+    RecyclerView.Adapter<ArticleRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -89,17 +87,15 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ArticleListViewAdapter.ViewHolder {
+    ): ArticleRecyclerAdapter.ViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.article_item, parent, false)
         return ViewHolder(view)
     }
 
     @ExperimentalStdlibApi
-    override fun onBindViewHolder(holder: ArticleListViewAdapter.ViewHolder, position: Int) {
-
+    override fun onBindViewHolder(holder: ArticleRecyclerAdapter.ViewHolder, position: Int) {
         holder.bind(articleList[position])
-
     }
 
     override fun getItemCount(): Int = articleList.size

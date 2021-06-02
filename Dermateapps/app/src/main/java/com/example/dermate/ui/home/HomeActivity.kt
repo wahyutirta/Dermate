@@ -37,6 +37,10 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomAppBar.setupWithNavController(navController,appBarConfiguration)
         binding.bottomNavView.setupWithNavController(navController)
 
+        binding.bottomNavView.setOnNavigationItemReselectedListener {  }
+
+
+
         binding.openClassifier.setOnClickListener {
             startActivity(Intent(this@HomeActivity, ImagePickerActivity::class.java))
         }

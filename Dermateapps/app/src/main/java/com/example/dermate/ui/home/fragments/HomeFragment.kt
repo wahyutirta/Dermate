@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dermate.databinding.FragmentHomeBinding
-import com.example.dermate.ui.adapter.ArticleListViewAdapter
+import com.example.dermate.ui.adapter.ArticleRecyclerAdapter
 import com.example.dermate.viewmodel.ArticleViewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var itemAdapter: ArticleListViewAdapter
+    private lateinit var itemAdapter: ArticleRecyclerAdapter
     private lateinit var articleViewModel: ArticleViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
     private fun setUi(data : List<String>){
         binding.apply {
             articleRv.layoutManager =LinearLayoutManager(context)
-            itemAdapter = ArticleListViewAdapter(data)
+            itemAdapter = ArticleRecyclerAdapter(data)
 
             articleRv.adapter = itemAdapter
         }

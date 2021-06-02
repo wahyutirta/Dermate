@@ -13,8 +13,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dermate.data.models.QuestionResultModel
 import com.example.dermate.databinding.ActivityResultBinding
+import com.example.dermate.ui.adapter.TreatmentRecyclerAdapter
 import com.example.dermate.viewmodel.ResultViewModel
 
 
@@ -24,10 +26,10 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var labels: List<String>
     private lateinit var image: Bitmap
     private lateinit var viewModel: ResultViewModel
+    private lateinit var treatmentsAdapter : TreatmentRecyclerAdapter
 
     companion object {
         const val DATA = "data_result"
-
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -39,12 +41,10 @@ class ResultActivity : AppCompatActivity() {
             .split("\n")
 
         viewModel = ViewModelProvider(this)[ResultViewModel::class.java]
+        binding.webView.apply {
 
-
-        binding.apply {
-
-            webView.visibility = View.GONE
-            webView.webViewClient = object : WebViewClient() {
+            visibility = View.GONE
+            webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(
                     view: WebView?,
                     request: String
@@ -54,67 +54,49 @@ class ResultActivity : AppCompatActivity() {
                 }
             }
 
-            webView.webViewClient = object : WebViewClient() {
+            webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    val h = webView.measuredHeight
+                    val h = binding.webView.measuredHeight
                     //webView.minimumHeight = h
-                    webView.visibility = View.VISIBLE
+                    binding.webView.visibility = View.VISIBLE
 
                 }
             }
-
-            /*
-            webView.viewTreeObserver.addOnPreDrawListener(object : OnPreDrawListener{
-                override fun onPreDraw(): Boolean {
-                    val h = webView.measuredHeight
-                    if (h != 0){
-                        webView.viewTreeObserver.removeOnPreDrawListener(this)
-                        webView.minimumHeight = h
-                    }
-                    return false
-                }
-
-            })
-
-             */
-
-
-            webView.settings.javaScriptEnabled = true
-            webView.settings.domStorageEnabled = true
-            webView.settings.allowContentAccess = true
-            webView.settings.loadWithOverviewMode = true
-            webView.settings.useWideViewPort = true
-            webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+            settings.apply {
+                javaScriptEnabled = true
+                domStorageEnabled = true
+                allowContentAccess = true
+                loadWithOverviewMode = true
+                useWideViewPort = true
+                cacheMode = WebSettings.LOAD_DEFAULT
+            }
         }
 
 
         val data = intent.getParcelableExtra<QuestionResultModel>(DATA)
-        val uriImage = data?.uri
-        val diseaseName = data?.diseaseName
-        if (!diseaseName.isNullOrEmpty()) {
-            viewModel.getDetailedData(diseaseName).observe(this, {
-                setUi(diseaseName, uriImage, it.url)
+        if (!data?.diseaseName.isNullOrEmpty()) {
+            viewModel.getDetailedData(data?.diseaseName!!).observe(this, {
+                setUi(data.diseaseName,  data.uri, it.url,it.solutions,it.treatmentSource)
             })
         }
-
     }
-
-
-    private fun setUi(diseaseName: String?, uriImage: Uri?, url: String?) {
+    private fun setUi(diseaseName: String?, uriImage: Uri?, url: String?, solutions : List<String>?, treatmentSource : String?) {
         image = MediaStore.Images.Media.getBitmap(this.contentResolver, uriImage)
         binding.apply {
             imageResultPreview.setImageBitmap(image)
             resultPredictionName1.text = diseaseName
+            this.treatmentSource.text = treatmentSource
 
+            treatmentsAdapter = TreatmentRecyclerAdapter(solutions!!)
+            solutionRv.layoutManager = LinearLayoutManager(this@ResultActivity)
+            solutionRv.adapter = treatmentsAdapter
 
-            webView.loadUrl(url!!)
-            webView.reload()
-            webView.visibility = View.VISIBLE
-
-
+            webView.apply {
+                loadUrl(url!!)
+                reload()
+                visibility = View.VISIBLE
+            }
         }
-
     }
-
 }
