@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         articleViewModel = ViewModelProvider(this)[ArticleViewModel::class.java]
         articleViewModel.articleData().observe(requireParentFragment().viewLifecycleOwner,  {
-            it.url?.let { data -> setUi(data) }
+            it.url?.let { data -> setUi(data.shuffled()) }
         })
     }
     private fun setUi(data : List<String>){

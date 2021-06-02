@@ -50,6 +50,7 @@
         <TextView
             android:id="@+id/article_provider"
             android:layout_width="0dp"
+            android:textColor="@color/red_pastel"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/url_title"
