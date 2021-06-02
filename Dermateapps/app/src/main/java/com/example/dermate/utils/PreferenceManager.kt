@@ -30,7 +30,7 @@ class PreferenceManager(context: Context) {
         editor.putBoolean(DARK_MODE,state)
         editor.commit()
     }
-    fun isDarkMode():Boolean = sharedPreferences.getBoolean(DARK_MODE,true)
+    fun isDarkMode():Boolean = sharedPreferences.getBoolean(DARK_MODE,false)
 
 
 }

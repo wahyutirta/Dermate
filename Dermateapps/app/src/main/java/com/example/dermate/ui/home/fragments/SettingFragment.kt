@@ -40,7 +40,6 @@ class SettingFragment : Fragment() {
             when (isChecked) {
                 true -> {
                     appPref.setDarkMode(true)
-
                     binding.apply {
                         darkModeMessage.visibility = View.VISIBLE
                         systemMessage.visibility = View.VISIBLE
