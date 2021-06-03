@@ -7,12 +7,13 @@
 1. [Project Description](#project-desc)
 2. [Built With](#built-with)
 3. [App Prerequisites](#app-prerequisites)
-4. [How to Install App](#install)
-5. [How to Use App](#use)
-6. [Contributing](#contributing)
-7. [Contact](#contact)
-8. [Others](#others)
-9. [License](#license)
+4. [How Others Can Replicate](#how-rep)
+5. [How to Install App](#install)
+6. [How to Use App](#use)
+7. [Contributing](#contributing)
+8. [Contact](#contact)
+9. [Others](#others)
+10. [License](#license)
 
 # Project Description <a name="project-desc"></a>
 
@@ -43,7 +44,7 @@ ML model for skin diseases diagnostic, built with :
 - Android Version 9+
 - Internet Connection
 
-# How Others Can Replicate
+# How Others Can Replicate <a name="how-rep"></a>
 
 Build Model :
 - Download our dataset from our drive 
