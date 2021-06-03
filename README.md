@@ -53,6 +53,8 @@ Built Model :
 - Download model TFlite and labels.txt
 
 Deployment Model :
+- Initialize database
+- insert data into the base for feature usage
 - Initialize the intrepeter
 - Preparing the image input (224x224x3)
 - Perform inference
