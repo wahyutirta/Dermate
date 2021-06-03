@@ -38,4 +38,14 @@
     <string name="third_page_title">Dapatkan tips dan pengetahuan harian tentang penyakit kulit bayi</string>
     <string name="disclaimer">Semua hasil yang diberikan adalah berdasarkan jurnal, interview ahli dan jawaban pengguna. Untuk lebih tepatnya silahkan hubungi dokter kepercayaan anda.</string>
     <string name="disease_related_articles">Artikel terkait penyakit</string>
+    <string name="features_list">-Mendeteksi penyakit menggunakan gambar \n-Support mode gelap\n-Support multi bahasa(ID,EN)</string>
+    <string name="features">Fitur :</string>
+    <string name="version">v 1.0.0</string>
+    <string name="version_title">Versi</string>
+    <string name="known_bugs">Bug :</string>
+    <string name="whatsapp">Beri tahu kami di whatsapp</string>
+    <string name="icon">icon</string>
+    <string name="disclaimer_title">Disclaimer : </string>
+    <string name="treatment">Perawatan</string>
+    <string name="source">Sumber : </string>
 </resources>

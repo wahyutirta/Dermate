@@ -59,15 +59,19 @@ class ArticleRecyclerAdapter(private val articleList: List<String>) :
                         val halodoc = "HALODOC"
                         val alodokter = "ALODOKTER"
                         val articleProviderText ="Article by ${data.sitename}"
-                        if (data.sitename.equals(halodoc,true)){
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.red_pastel))
-                        } else if (data.sitename.equals(alodokter,true)){
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.blue_pastel))
-                        }else{
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.theme_color))
+                        when {
+                            data.sitename.equals(halodoc,true) -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.red_pastel))
+                            }
+                            data.sitename.equals(alodokter,true) -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.blue_pastel))
+                            }
+                            else -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.theme_color))
+                            }
                         }
 
                         urlTitle.text = trimTitle

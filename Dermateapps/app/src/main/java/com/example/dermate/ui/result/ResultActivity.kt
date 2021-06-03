@@ -41,10 +41,10 @@ class ResultActivity : AppCompatActivity() {
             .split("\n")
 
         viewModel = ViewModelProvider(this)[ResultViewModel::class.java]
-        binding.webView.apply {
+        binding.apply {
 
-            visibility = View.GONE
-            webViewClient = object : WebViewClient() {
+            webView.visibility = View.GONE
+            webView.webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(
                     view: WebView?,
                     request: String
@@ -54,16 +54,14 @@ class ResultActivity : AppCompatActivity() {
                 }
             }
 
-            webViewClient = object : WebViewClient() {
+            webView.webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    val h = binding.webView.measuredHeight
-                    //webView.minimumHeight = h
-                    binding.webView.visibility = View.VISIBLE
+                    webView.visibility = View.VISIBLE
 
                 }
             }
-            settings.apply {
+            webView.settings.apply {
                 javaScriptEnabled = true
                 domStorageEnabled = true
                 allowContentAccess = true
@@ -98,5 +96,10 @@ class ResultActivity : AppCompatActivity() {
                 visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
