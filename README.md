@@ -43,6 +43,17 @@ ML model for skin diseases diagnostic, built with :
 - Android Version 9+
 - Internet Connection
 
+# How Others Can Replicate
+
+Build Model :
+- Download our dataset from our drive 
+- Install all framework and libraries that needed
+- Run our model on your colab
+- Download model TFlite and labels.txt
+
+Deployment Model :
+
+
 # How to Install App <a name="install"></a>
 - Download apk from the [latest release](https://github.com/wahyutirta/Dermate/releases)
 - Enable install from unknown sources
