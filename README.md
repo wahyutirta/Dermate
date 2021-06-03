@@ -25,7 +25,7 @@
 Hi, introduce **Dermate**, an automatic skin diseases diagnostic application using image recognition. This application is specifically intended to detect skin diseases in babies. **Dermate** come as a solution to solve problems and help the Indonesia government in the healthcare sector. As a healthcare application, we help people to treat diseases without having to go to the hospital directly during this pandemic COVID-19. Parents can simply capture image for their baby skin condition, and our smart AI can easily diagnostic their baby skin diseases. Our application is also supported by articles that are able to provide information to parents about the baby skin, and further treatment to overcome the disease. With **Dermate** we provide easy, fast, and inexpensive prevention of baby skin diagnosis with secure medical privacy.
 
 # Built With <a name="built-with"></a>
-- Android Studio
+- Android Studio [Jetpack MVVM Architecture](https://developer.android.com/jetpack/guide)
 - Google Cloud Platform Services
 - [MobileNet Model Based Architecture](https://github.com/tensorflow/tensorflow/blob/v2.5.0/tensorflow/python/keras/applications/mobilenet.py#L80-L313)
 
@@ -34,7 +34,7 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 - Internet Connection
 
 # How to Install App <a name="install"></a>
-- Download apk from the latest release
+- Download apk from the [latest release](https://github.com/wahyutirta/Dermate/releases)
 - Enable install from unknown sources
 - Install apk
 
