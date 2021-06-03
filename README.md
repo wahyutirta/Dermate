@@ -29,7 +29,7 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 - Android Studio [Jetpack MVVM Architecture](https://developer.android.com/jetpack/guide)
 - Google Cloud Platform Services[GCP Console](https://console.cloud.google.com/home/dashboard?authuser=1&project=able-decorator-315006)
 
-ML model for skin diseases diagnostic, built with :
+ML model built with framework and libraries :
 - Jupyter Notebook or Google Colab
 - python==3.7.10
 - tensorflow==2.5.0
@@ -46,13 +46,17 @@ ML model for skin diseases diagnostic, built with :
 
 # How Others Can Replicate <a name="how-rep"></a>
 
-Build Model :
-- Download our dataset from our drive 
+Built Model :
+- Download our dataset from our [drive](https://drive.google.com/drive/u/1/folders/1MeHLKL6dW3_PePbT34t37k478bGrBjCp)
 - Install all framework and libraries that needed
-- Run our model on your colab
+- Run our [model](https://github.com/wahyutirta/Dermate/blob/master/ML%20Model/skin_diseases.ipynb) on your colab
 - Download model TFlite and labels.txt
 
 Deployment Model :
+- Initialize the intrepeter
+- Preparing the image input (224x224x3)
+- Perform inference
+- Obtain map results
 
 
 # How to Install App <a name="install"></a>
