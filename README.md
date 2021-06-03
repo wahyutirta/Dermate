@@ -26,7 +26,7 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 
 # Built With <a name="built-with"></a>
 - Android Studio [Jetpack MVVM Architecture](https://developer.android.com/jetpack/guide)
-- Google Cloud Platform Services
+- Google Cloud Platform Services[GCP Console](https://console.cloud.google.com/home/dashboard?authuser=1&project=able-decorator-315006)
 - [MobileNet Model Based Architecture](https://github.com/tensorflow/tensorflow/blob/v2.5.0/tensorflow/python/keras/applications/mobilenet.py#L80-L313)
 
 # App Prerequisites <a name="app-prerequisites"></a>
