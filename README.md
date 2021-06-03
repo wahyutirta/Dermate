@@ -27,6 +27,16 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 # Built With <a name="built-with"></a>
 - Android Studio [Jetpack MVVM Architecture](https://developer.android.com/jetpack/guide)
 - Google Cloud Platform Services[GCP Console](https://console.cloud.google.com/home/dashboard?authuser=1&project=able-decorator-315006)
+
+ML model for skin diseases diagnostic, built with :
+- Jupyter Notebook or Google Colab
+- python==3.7.10
+- tensorflow==2.5.0
+- numpy==1.19.5
+- scikit-learn==0.22.2
+- matplotlib==3.2.2
+- splitfolders==0.4.3
+- keras==2.5.0
 - [MobileNet Model Based Architecture](https://github.com/tensorflow/tensorflow/blob/v2.5.0/tensorflow/python/keras/applications/mobilenet.py#L80-L313)
 
 # App Prerequisites <a name="app-prerequisites"></a>
