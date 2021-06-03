@@ -25,14 +25,20 @@ Hi, introduce **Dermate**, an automatic skin diseases diagnostic application usi
 - [MobileNet Model Based Architecture](https://github.com/tensorflow/tensorflow/blob/v2.5.0/tensorflow/python/keras/applications/mobilenet.py#L80-L313)
 
 # App Prerequisites <a name="app-prerequisites"></a>
-- Android Version [needs to be updated]
+- Android Version 9+
 - Internet Connection
 
 # How to Install App <a name="install"></a>
-[needs to be updated]
+- Download apk from the latest release
+- Enable install from unknown sources
+- Install apk
 
 # How to Use App <a name="use"></a>
-[needs to be updated]
+- Open app
+- Tap the scan button in home page
+- Add image
+- Start recognize
+- See result
 
 # Contributing <a name="contributing"></a>
 Pull requests are **welcome**. For major changes, please open an issue first to discuss what you would like to change. Next steps:
