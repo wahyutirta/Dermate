@@ -60,6 +60,10 @@ Deployment Model :
 - Perform inference
 - Obtain map results
 
+Mobile Application Development :
+- compileSdkVersion 30
+- buildToolsVersion "30.0.3"
+
 
 # How to Install App <a name="install"></a>
 - Download apk from the [latest release](https://github.com/wahyutirta/Dermate/releases)
