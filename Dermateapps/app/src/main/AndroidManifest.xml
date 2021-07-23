@@ -22,6 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.dermate">
+        <activity android:name=".ui.webview.WebViewActivity"
+            android:parentActivityName=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.question.AskingQuestionsActivity"
             android:label="Questions"

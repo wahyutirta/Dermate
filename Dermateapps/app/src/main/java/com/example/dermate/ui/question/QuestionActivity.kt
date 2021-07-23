@@ -2,10 +2,13 @@
 
 package com.example.dermate.ui.question
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.dermate.data.models.QuestionDataModel
 import com.example.dermate.data.models.QuestionResultModel
@@ -68,17 +71,28 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun observeQuestions1(label: String) {
-        questionViewModel.getSpecifiedData1(label).observe(this, { data ->
-            data.questions?.let {
-                val intent = Intent(this, AskingQuestionsActivity::class.java)
-                intent.putExtra(
-                    AskingQuestionsActivity.QUESTION_DATA,
-                    QuestionDataModel(it, RESULT_CODE1)
-                )
-                startActivityForResult(intent, QUEST1)
-            }
-        })
 
+        if (isNetworkAvailable()) {
+            questionViewModel.getSpecifiedData1(label).observe(this, { data ->
+                data.questions?.let {
+                    val intent = Intent(this, AskingQuestionsActivity::class.java)
+                    intent.putExtra(
+                        AskingQuestionsActivity.QUESTION_DATA,
+                        QuestionDataModel(it, RESULT_CODE1)
+                    )
+                    startActivityForResult(intent, QUEST1)
+                }
+            })
+        }
+        else{
+            Toast.makeText(this, "No Internet Available", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun isNetworkAvailable(): Boolean {
+        val connectionManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return connectionManager.isActiveNetworkMetered
     }
 
     private fun observeQuestions2(label: String) {
@@ -133,15 +147,16 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun showResult() {
-        resultLabel = if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
-            label1
-        } else if (totalTrueQuestion2 > totalTrueQuestion1 && totalTrueQuestion2 > totalTrueQuestion3) {
-            label2
-        } else if (totalTrueQuestion3 > totalTrueQuestion1 && totalTrueQuestion3 > totalTrueQuestion2) {
-            label3
-        } else{
-            "Please Check your answer and try again"
-        }
+        resultLabel =
+            if (totalTrueQuestion1 > totalTrueQuestion2 && totalTrueQuestion1 > totalTrueQuestion3) {
+                label1
+            } else if (totalTrueQuestion2 > totalTrueQuestion1 && totalTrueQuestion2 > totalTrueQuestion3) {
+                label2
+            } else if (totalTrueQuestion3 > totalTrueQuestion1 && totalTrueQuestion3 > totalTrueQuestion2) {
+                label3
+            } else {
+                label3
+            }
         val intent = Intent(this@QuestionActivity, ResultActivity::class.java)
         intent.putExtra(ResultActivity.DATA, QuestionResultModel(imageUri, resultLabel))
         startActivity(intent)

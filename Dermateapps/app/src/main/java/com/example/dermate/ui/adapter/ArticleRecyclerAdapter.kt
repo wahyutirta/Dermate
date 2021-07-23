@@ -1,16 +1,14 @@
 package com.example.dermate.ui.adapter
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dermate.R
 import com.example.dermate.databinding.ArticleItemBinding
+import com.example.dermate.ui.webview.WebViewActivity
 import io.github.ponnamkarthik.richlinkpreview.MetaData
 import io.github.ponnamkarthik.richlinkpreview.ResponseListener
 import io.github.ponnamkarthik.richlinkpreview.RichPreview
@@ -29,6 +27,10 @@ class ArticleRecyclerAdapter(private val articleList: List<String>) :
             extractUrl(url)
 
             itemView.setOnClickListener {
+                val goView = Intent(itemView.context,WebViewActivity::class.java)
+                goView.putExtra(WebViewActivity.URL,url)
+                itemView.context.startActivity(goView)
+                /*
                 try {
                     val myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                     itemView.context.startActivity(myIntent)
@@ -38,6 +40,8 @@ class ArticleRecyclerAdapter(private val articleList: List<String>) :
                     ).show()
                     e.printStackTrace()
                 }
+
+                 */
             }
         }
 
