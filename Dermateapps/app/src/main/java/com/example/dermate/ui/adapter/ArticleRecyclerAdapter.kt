@@ -1,25 +1,21 @@
 package com.example.dermate.ui.adapter
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Color
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dermate.R
 import com.example.dermate.databinding.ArticleItemBinding
+import com.example.dermate.ui.webview.WebViewActivity
 import io.github.ponnamkarthik.richlinkpreview.MetaData
 import io.github.ponnamkarthik.richlinkpreview.ResponseListener
 import io.github.ponnamkarthik.richlinkpreview.RichPreview
 
 
-class ArticleListViewAdapter(private val articleList: List<String>) :
-    RecyclerView.Adapter<ArticleListViewAdapter.ViewHolder>() {
+class ArticleRecyclerAdapter(private val articleList: List<String>) :
+    RecyclerView.Adapter<ArticleRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -31,6 +27,10 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
             extractUrl(url)
 
             itemView.setOnClickListener {
+                val goView = Intent(itemView.context,WebViewActivity::class.java)
+                goView.putExtra(WebViewActivity.URL,url)
+                itemView.context.startActivity(goView)
+                /*
                 try {
                     val myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                     itemView.context.startActivity(myIntent)
@@ -40,6 +40,8 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                     ).show()
                     e.printStackTrace()
                 }
+
+                 */
             }
         }
 
@@ -61,15 +63,19 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
                         val halodoc = "HALODOC"
                         val alodokter = "ALODOKTER"
                         val articleProviderText ="Article by ${data.sitename}"
-                        if (data.sitename.equals(halodoc,true)){
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.red_pastel))
-                        } else if (data.sitename.equals(alodokter,true)){
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.blue_pastel))
-                        }else{
-                            articleProvider.text = articleProviderText
-                            articleProvider.setTextColor(itemView.resources.getColor(R.color.theme_color))
+                        when {
+                            data.sitename.equals(halodoc,true) -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.red_pastel))
+                            }
+                            data.sitename.equals(alodokter,true) -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.blue_pastel))
+                            }
+                            else -> {
+                                articleProvider.text = articleProviderText
+                                articleProvider.setTextColor(itemView.context.getColor(R.color.theme_color))
+                            }
                         }
 
                         urlTitle.text = trimTitle
@@ -89,17 +95,15 @@ class ArticleListViewAdapter(private val articleList: List<String>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ArticleListViewAdapter.ViewHolder {
+    ): ArticleRecyclerAdapter.ViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.article_item, parent, false)
         return ViewHolder(view)
     }
 
     @ExperimentalStdlibApi
-    override fun onBindViewHolder(holder: ArticleListViewAdapter.ViewHolder, position: Int) {
-
+    override fun onBindViewHolder(holder: ArticleRecyclerAdapter.ViewHolder, position: Int) {
         holder.bind(articleList[position])
-
     }
 
     override fun getItemCount(): Int = articleList.size

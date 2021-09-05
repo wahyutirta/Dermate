@@ -154,11 +154,7 @@ class ImagePickerActivity : AppCompatActivity() {
                 ind2 = i
             }
         }
-        Toast.makeText(
-            this,
-            " grade index is $ind, $ind1, $ind2 from array {   ${arr[0]} ; ${arr[1]} ; ${arr[2]} ; ${arr[3]} ; ${arr[4]} ; ${arr[5]} ; ${arr[6]} ; ${arr[7]} ; ${arr[8]} ; ${arr[9]} ; ${arr[10]} }",
-            Toast.LENGTH_LONG
-        ).show()
+
         return listOf(ind, ind1, ind2)
     }
 }

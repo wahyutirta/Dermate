@@ -32,10 +32,12 @@ class AskingQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun bindQuestions(data: List<String>?) {
-        binding.questionText1.text = data?.get(0)
-        binding.questionText2.text = data?.get(1)
-        binding.questionText3.text = data?.get(2)
-        binding.questionText4.text = data?.get(3)
+        binding.apply {
+            questionText1.text = data?.get(0)
+            questionText2.text = data?.get(1)
+            questionText3.text = data?.get(2)
+            questionText4.text = data?.get(3)
+        }
 
     }
 

@@ -16,9 +16,9 @@ import com.example.dermate.ui.welcomeslider.pagefragment.ThirdPageFragment
 
 class WelcomeSliderActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityWelcomeSliderBinding
-    private val fragmentList  = ArrayList<Fragment>()
-    private lateinit var preferenceManager : PreferenceManager
+    private lateinit var binding: ActivityWelcomeSliderBinding
+    private val fragmentList = ArrayList<Fragment>()
+    private lateinit var preferenceManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class WelcomeSliderActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager(this)
 
         //remove this part when developing app
-        if (!preferenceManager.isFirstTimeLaunch()){
+        if (!preferenceManager.isFirstTimeLaunch()) {
             startMainActivity()
             finish()
         }
@@ -38,9 +38,11 @@ class WelcomeSliderActivity : AppCompatActivity() {
         val adapter = SliderAdapter(this)
         binding.viewPagerIntro.adapter = adapter
 
-        fragmentList.addAll(listOf(
-            FirstPageFragment(),SecondPageFragment(),ThirdPageFragment()
-        ))
+        fragmentList.addAll(
+            listOf(
+                FirstPageFragment(), SecondPageFragment(), ThirdPageFragment()
+            )
+        )
         adapter.setFragmentList(fragmentList)
         binding.indicatorLayout.apply {
             setIndicatorCount(adapter.itemCount)
@@ -52,17 +54,17 @@ class WelcomeSliderActivity : AppCompatActivity() {
     }
 
     private val clickListener = View.OnClickListener {
-        when(it.id){
-            R.id.tv_next ->{
+        when (it.id) {
+            R.id.tv_next -> {
                 val position = binding.viewPagerIntro.currentItem
-                if (position<fragmentList.lastIndex){
-                    binding.viewPagerIntro.currentItem =position +1
-                }else{
+                if (position < fragmentList.lastIndex) {
+                    binding.viewPagerIntro.currentItem = position + 1
+                } else {
                     preferenceManager.setIsFirstTimeLaunch(false)
                     startMainActivity()
                 }
             }
-            R.id.tv_skip->{
+            R.id.tv_skip -> {
                 preferenceManager.setIsFirstTimeLaunch(false)
                 startMainActivity()
             }
@@ -74,16 +76,16 @@ class WelcomeSliderActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun register(){
+    private fun register() {
         binding.apply {
-            viewPagerIntro.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            viewPagerIntro.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     indicatorLayout.selectCurrentPosition(position)
-                    if (position<fragmentList.lastIndex){
+                    if (position < fragmentList.lastIndex) {
                         tvSkip.visibility = View.VISIBLE
                         tvNext.text = resources.getString(R.string.next)
 
-                    }else{
+                    } else {
                         tvSkip.visibility = View.GONE
                         tvNext.text = resources.getString(R.string.get_started)
                     }

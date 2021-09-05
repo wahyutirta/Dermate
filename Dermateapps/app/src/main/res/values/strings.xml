@@ -24,9 +24,9 @@
     <string name="take_picture">Take Picture</string>
     <string name="on">Turn On</string>
     <string name="off">Turn Off</string>
-    <string name="article_provider">"Article by</string>
+    <string name="article_provider">Article by</string>
     <string name="prediction_result">Prediction Result</string>
-    <string name="prediction">Prediction</string>
+    <string name="prediction">Diagnose</string>
     <string name="diagnose">Diagnose</string>
     <string name="logo">logo</string>
     <string name="image_thumbnail">Image thumbnail</string>
@@ -36,5 +36,17 @@
     <string name="second_page_title">We make sure to give accurate diagnosis for your loved one</string>
     <string name="third_page_desc">We provide you number of baby\'s skin disease articles from official healthcare web page</string>
     <string name="third_page_title">Get daily tips and knowledge about baby\'s skin diseases</string>
+    <string name="features_list">-Recognize skin disease using image \n-Dark mode support\n-Support multi language(ID,EN)</string>
+    <string name="features">Features :</string>
+    <string name="version">v 1.0.0</string>
+    <string name="version_title">Version</string>
+    <string name="known_bugs">Known bugs :</string>
+    <string name="whatsapp">Tell us on whatsapp</string>
+    <string name="icon">icon</string>
+    <string name="disclaimer_title">Disclaimer : </string>
+    <string name="disclaimer">All results provided are based on journals, expert interviews and user answers. For more details, please contact your trusted doctor.</string>
+    <string name="treatment">Treatment</string>
+    <string name="source">Source : </string>
+    <string name="disease_related_articles">Disease related article</string>
 
 </resources>

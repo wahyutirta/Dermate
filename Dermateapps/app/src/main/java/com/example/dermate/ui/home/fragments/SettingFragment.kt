@@ -2,6 +2,7 @@ package com.example.dermate.ui.home.fragments
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
@@ -35,6 +36,12 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         appPref = PreferenceManager(requireContext())
         binding.switchDarkMode.isChecked = appPref.isDarkMode()
+        binding.whatsappBtn.setOnClickListener {
+            val url = "https://api.whatsapp.com/send?phone=62895807400020"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
 
         binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
             when (isChecked) {
@@ -62,11 +69,6 @@ class SettingFragment : Fragment() {
             }
             binding.collapseExpand.setOnClickListener {
                 if (binding.hiddenLayout.visibility == View.VISIBLE) {
-
-                    // The transition of the hiddenView is carried out
-                    //  by the TransitionManager class.
-                    // Here we use an object of the AutoTransition
-                    // Class to create a default transition.
                     TransitionManager.beginDelayedTransition(
                         binding.baseCardview,
                         AutoTransition()
